@@ -1,0 +1,121 @@
+/* Restyled styles.css */
+
+body {
+    background-color: #f4f6f8; /* Slightly warmer light background */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* More modern font */
+    line-height: 1.6; /* Improved readability */
+}
+
+h1 {
+    margin-bottom: 25px;
+    color: #2c3e50; /* Darker, more sophisticated text color */
+    font-weight: 700; /* Make headings bolder */
+}
+
+.modal-header {
+    background-color: #3498db; /* Brighter, more modern primary color */
+    color: white;
+    border-bottom: 1px solid #2980b9; /* Add a subtle border */
+}
+
+.modal-footer {
+    background-color: #e0e0e0; /* Slightly lighter footer color */
+    border-top: 1px solid #d1d1d1; /* Add a subtle border */
+}
+
+.table {
+    background-color: #ffffff; /* Light table background */
+    color: #333; /* Dark text color */
+    border-collapse: collapse; /* Collapse borders for a cleaner look */
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.table th, .table td {
+    vertical-align: middle;
+    padding: 10px 15px;
+    border-bottom: 1px solid #ddd; /* Add subtle row dividers */
+    text-align: left; /* Align text to the left by default */
+}
+
+.table th {
+    background-color: #f2f2f2; /* Light background for table headers */
+    font-weight: bold;
+}
+
+.table img {
+    border-radius: 8px; /* Slightly less extreme rounded corners for images */
+    max-width: 40px; /* Adjust image size as needed */
+    height: auto;
+}
+
+.btn-primary {
+    background-color: #3498db; /* Brighter primary color */
+    border-color: #3498db;
+    color: white;
+    border-radius: 5px; /* Add slight rounded corners */
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #16c542; /* Darker shade on hover */
+    border-color: #16c542;
+}
+
+.btn-warning {
+    background-color: #f39c12; /* More vibrant warning color */
+    border-color: #f39c12;
+    color: white;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-danger {
+    background-color: #e74c3c; /* More vibrant danger color */
+    border-color: #e74c3c;
+    color: white;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-danger:hover {
+    background-color: #c0392b; /* Darker shade on hover */
+    border-color: #c0392b;
+}
+
+.form-control {
+    border-radius: 8px; /* Slightly more rounded corners for inputs */
+    padding: 10px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+.logout-btn {
+    background-color: #e74c3c; /* More vibrant danger color */
+    border: none;
+    color: white;
+    padding: 12px 25px; /* Slightly more padding */
+    font-size: 16px;
+    border-radius: 8px; /* More rounded corners */
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    cursor: pointer; /* Add cursor for better interaction */
+    position: fixed; /* Add this to position the button */
+    bottom: 20px; /* Distance from the bottom of the viewport */
+    right: 20px; /* Distance from the right of the viewport */
+    z-index: 1000; /* Ensure it stays on top of other elements if needed */
+}
+
+.logout-btn:hover {
+    background-color: #ff1900;
+    text-decoration: none;
+}

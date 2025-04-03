@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your custom CSS file -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            display: flex;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .sidebar {
+            width: 250px;
+            background-color: #343a40;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: fixed;
+            height: 100%;
+        }
+
+        .sidebar .menu {
+            padding: 20px;
+        }
+
+        .sidebar a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .sidebar a:hover {
+            background-color: #495057;
+        }
+
+        .sidebar .logout {
+            margin: 20px;
+        }
+
+        .sidebar .profile {
+            text-align: center;
+            padding: 20px;
+            border-top: 1px solid #495057;
+        }
+
+        .sidebar .profile img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: -150px;
+        }
+
+        .sidebar .profile .name {
+            font-size: 16px;
+            font-weight: bold;
+            color: white;
+            margin-bottom: -150px
+        }
+
+        .content {
+            margin-left: 250px;
+            padding: 20px;
+            width: 100%;
+        }
+
+        .real-time-clock-container {
+            background-color: #f8f9fa;
+            padding: 10px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .info-box-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .system-health-box,
+        .verified-users-box {
+            flex: 1;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .system-health-box.good {
+            color: green;
+        }
+
+        .system-health-box.bad {
+            color: red;
+        }
+
+        .verified-users-box {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .account-status.verified {
+            color: green;
+            font-weight: bold;
+        }
+
+        .account-status.not-verified {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+    <title>Dashboard</title>
+</head>
+
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="menu">
+            <h4 class="text-center">Dashboard</h4>
+            <a href="index.html">Home</a>
+            <a href="users.php">Users</a>
+            <a href="analytics.php">Analytics</a>
+            <a href="settings.php">Settings</a>
+        </div>
+        <div class="profile">
+            <img id="profileImage" src="default-profile.png" alt="Profile Picture">
+            <div id="profileName" class="name">User Name</div>
+        </div>
+        <div class="logout">
+            <a href="logout.php" class="btn btn-danger btn-block">Logout</a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content">
+        <!-- Real-Time Clock -->
+        <div class="real-time-clock-container">
+            <span id="realTimeClock"></span>
+        </div>
+
+        <!-- Info Boxes (System Health and Verified Users) -->
+        <div class="info-box-container">
+            <!-- System Health -->
+            <div id="systemHealthBox" class="system-health-box">
+                <strong>System Health:</strong> <span id="systemHealth">Loading...</span>
+            </div>
+
+            <!-- Verified Users -->
+            <div class="verified-users-box">
+                Total Verified Users: <span id="verifiedCount">Loading...</span>
+            </div>
+        </div>
+
+        <!-- User Table -->
+        <div class="container mt-5">
+            <h1>📚 User Accounts 🎓</h1>
+            <table class="table table-dark table-striped mt-3">
+                <thead>
+                    <tr>
+                        <th>User ID</th>
+                        <th>Profile</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Email</th>
+                        <th>Account Status</th>
+                    </tr>
+                </thead>
+                <tbody id="userTableBody">
+                    <!-- User rows will be dynamically added here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        function updateClock() {
+            const now = new Date();
+            const options = {
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit'
+            };
+            document.getElementById('realTimeClock').textContent = now.toLocaleDateString('en-US', options);
+        }
+        setInterval(updateClock, 1000);
+        updateClock(); // Initialize clock immediately
+    </script>
+</body>
+
+</html>
